@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var _ = require('lodash');
 
 var router = require('./router.js');
-var config = config('./config.js');
+var config = require('./config.js');
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.use(cookieParser());
 //静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
 
-_.extend(app.locals, config: config);
+_.extend(app.locals, {config:config});
 
 //路由
 app.use('/', router);
