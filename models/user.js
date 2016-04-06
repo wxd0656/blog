@@ -6,10 +6,16 @@ var UserSchema = new Schema({
 	loginname: { type:String },
 	password: { type:String },
 	email: { type:String },
-	score: { type:Number, default: 0 },
+	Auth: { type:Number, default: 0 },
 
 	create_at: { type:Date, default:Date.now },
 	uddate_at: { type:Date, default:Date.now },
 
 	receive_reply_mail: {type: Boolean, default: false },
 });
+
+//添加索引
+UserSchema.index({loginname: 1}, {unique: true});
+UserSchema.index({email: 1}, {unique: true});
+
+mongoose.model('user', UserSchema);
