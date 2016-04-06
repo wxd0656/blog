@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var MongoStore = require('connect-mongo');
 var bodyParser = require('body-parser');
 var _ = require('lodash');
 
@@ -24,6 +25,14 @@ app.use(logger('dev'));// http请求log中间件
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: config.session_secret,
+  store: new MongoStore({
+    db:config.dbname
+  }),
+  resave: true,
+  saveUninitialized: true,
+}));
 
 //静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
