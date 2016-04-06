@@ -3,7 +3,8 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var MongoStore = require('connect-mongo');
+var session = require('express-session');
+var MongoStore = require('connect-mongo/es5')(session); //为了适用老版本（0.10.x 0.12.x）的node，适用es5的标准
 var bodyParser = require('body-parser');
 var _ = require('lodash');
 
@@ -28,10 +29,10 @@ app.use(cookieParser());
 app.use(session({
   secret: config.session_secret,
   store: new MongoStore({
-    db:config.dbname
+    url:config.db
   }),
   resave: true,
-  saveUninitialized: true,
+  saveUninitialized: true
 }));
 
 //静态文件目录
