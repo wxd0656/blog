@@ -35,16 +35,16 @@ var config = {
   cnzz_tracker_id: '',
 
   // mongodb 配置
-  db: 'mongodb://127.0.0.1/node_blog',
-  dbname: 'node_blog',
+  db: 'mongodb://127.0.0.1/dashabi_node_blog',
+  dbname: 'dashabi_node_blog',
 
   // redis 配置，默认是本地
   redis_host: '127.0.0.1',
   redis_port: 6379,
   redis_db: 0,
 
-  session_secret: 'node_club_secret', // 务必修改
-  auth_cookie_name: 'node_club',
+  session_secret: 'dashabi_node_blog_secret', // 务必修改
+  auth_cookie_name: 'dashabi_node_club',
 
   // 程序运行的端口
   port: 3000,
