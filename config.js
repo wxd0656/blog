@@ -113,11 +113,10 @@ var config = {
 
   file_limit: '1MB',
 
-  // 版块
-  tabs: [
-    ['share', '分享'],
-    ['ask', '问答'],
-    ['job', '招聘'],
+  // 文章类型
+  article_type: [
+    ['node', '笔记'],
+    ['joke', '扯淡']
   ],
 
   // 极光推送
