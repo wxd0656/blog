@@ -15,5 +15,7 @@ mongoose.connect(config.db,{
 
 //加载各models
 require('./user.js');
+require('./article.js');
 
 exports.User = mongoose.model('user');
+exports.Article = mongoose.model('article');

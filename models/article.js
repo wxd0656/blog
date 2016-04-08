@@ -39,3 +39,6 @@ ArticleSchema.virtual('article_type').get(function () {
 		return '';
 	}
 });
+
+
+mongoose.model('article', ArticleSchema);
