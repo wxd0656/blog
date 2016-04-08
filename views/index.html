@@ -2,15 +2,18 @@
   <div class="panel">
     <div class="header">
       <!-- 动态展示文章分类tab -->
-      <%  %>
-        <a href="<%= value ? '/?tab=' + value : '/' %>"
-          class="topic-tab <%= value === tab ? 'current-tab' : '' %>"><%= text %></a>
-      <%  %>
+      <% [['all', '全部']].concat(types).forEach(function (item) { 
+          var value = item[0];
+          var text = item[1];
+        %>
+        <a href="<%= value ? '/?article_type=' + value : '/' %>"
+          class="topic-tab <%= value === type ? 'current-tab' : '' %>"><%= text %></a>
+      <% }) %>
     </div>
-    <% if (typeof(topics) !== 'undefined' && topics.length > 0) { %>
+    <% if (typeof(articles) !== 'undefined' && articles.length > 0) { %>
     <div class="inner no-padding">
       <%- partial('topic/list', {
-      topics: topics,
+      articles: articles,
       pages: pages,
       current_page: current_page,
       base: '/'

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 var _ = require('lodash');
 var config = require('../config.js');
 
@@ -8,7 +9,7 @@ var ArticleSchema = new Schema({
 	title: { type:String },
 	content: { type:String },
 	author_id: { type:ObjectId },
-	top: { type:boolean, default:false },
+	top: { type:Boolean, default:false },
 	tag: { type:String },
 	type: { type:String }, //文章类型
 	visity_count: { type:Number },
@@ -19,7 +20,7 @@ var ArticleSchema = new Schema({
 	last_reply: { type:ObjectId },
 	last_reply_at: { type:Date, default:Date.now },
 
-	deleted: { type:boolean, default:false }
+	deleted: { type:Boolean, default:false }
 });
 
 

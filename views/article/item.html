@@ -1,0 +1,18 @@
+<div class='cell'>
+
+  <span class='last_time pull-right'>
+    <span class="last_active_time"><%= article.create_at %></span>
+  </span>
+
+  <div class="topic_title_wrapper">
+    <% if (article.top) { %>
+      <span class='put_top'>置顶</span>
+    <% } else if (typeof(article_type) !== 'undefined' &&  article_type === 'all' && article.article_type) { %>
+    <span class="topiclist-tab"><%= article.article_type %></span>
+    <% } %>
+
+    <a class='topic_title' href='/article/<%= article._id %>' title='<%= article.title %>'>
+      <%= article.title %>
+    </a>
+  </div>
+</div>

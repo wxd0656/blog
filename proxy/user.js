@@ -1,4 +1,4 @@
-var User = require('../models/user.js');
+var User = require('../models').User;
 
 /**
  * 根据登录名查找用户
