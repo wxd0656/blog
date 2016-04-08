@@ -49,18 +49,9 @@ var config = {
   // 程序运行的端口
   port: 3000,
 
-  // 话题列表显示的话题数量
-  list_topic_count: 20,
+  // 文章列表显示的话题数量
+  item_per_page_limit: 20,
 
-  // RSS配置
-  rss: {
-    title: 'CNode：Node.js专业中文社区',
-    link: 'http://cnodejs.org',
-    language: 'zh-cn',
-    description: 'CNode：Node.js专业中文社区',
-    //最多获取的RSS Item数量
-    max_rss_items: 50
-  },
 
   // 邮箱配置
   mail_opts: {
@@ -93,16 +84,6 @@ var config = {
 
   // 下面两个配置都是文件上传的配置
 
-  // 7牛的access信息，用于文件上传
-  qn_access: {
-    accessKey: 'your access key',
-    secretKey: 'your secret key',
-    bucket: 'your bucket name',
-    origin: 'http://your qiniu domain',
-    // 如果vps在国外，请使用 http://up.qiniug.com/ ，这是七牛的国际节点
-    // 如果在国内，此项请留空
-    uploadURL: 'http://xxxxxxxx',
-  },
 
   // 文件上传配置
   // 注：如果填写 qn_access，则会上传到 7牛，以下配置无效
@@ -119,12 +100,6 @@ var config = {
     ['joke', '扯淡']
   ],
 
-  // 极光推送
-  jpush: {
-    appKey: 'YourAccessKeyyyyyyyyyyyy',
-    masterSecret: 'YourSecretKeyyyyyyyyyyyyy',
-    isDebug: false,
-  },
 
   create_post_per_day: 1000, // 每个用户一天可以发的主题数
   create_reply_per_day: 1000, // 每个用户一天可以发的评论数
@@ -132,7 +107,7 @@ var config = {
 };
 
 if (process.env.NODE_ENV === 'test') {
-  config.db = 'mongodb://127.0.0.1/node_club_test';
+  config.db = 'mongodb://127.0.0.1/dashabi_node_blog_test';
 }
 
 module.exports = config;
