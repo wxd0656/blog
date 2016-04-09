@@ -11,7 +11,12 @@ exports.index = function (req, res, next) {
 
 	var article_type = req.query.article_type || 'all';
 
-	var query = {deleted:false, type:article_type};
+	var query = {deleted:false};
+	// var query = {};
+
+	if (article_type && article_type !== 'all') {
+		query.type = article_type;
+	}
 
 	async.parallel([
 		function(callback) {
