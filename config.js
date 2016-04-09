@@ -96,7 +96,7 @@ var config = {
 
   // 文章类型
   article_type: [
-    ['node', '笔记'],
+    ['note', '笔记'],
     ['joke', '扯淡']
   ],
 
