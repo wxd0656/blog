@@ -30,7 +30,7 @@ exports.createNewArticle = function(req, res, next) {
 	} else if (!content) {
 		editError = '内容不可为空';
 	} else if (!articleType || types.indexOf(articleType) == -1) {
-		editError = '内容不可为空';
+		editError = '文章类型不能是空';
 	}
 
 	if (editError) {
@@ -47,6 +47,6 @@ exports.createNewArticle = function(req, res, next) {
 			logger.dblogger.error('save new article error : ' + err.message);
 			return next(err);
 		}
-		res.redirect('');
+		res.redirect('/');
 	});
 }
