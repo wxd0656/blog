@@ -18,10 +18,10 @@ exports.index = function (req, res, next) {
 		query.type = article_type;
 	}
 
+	var perPage = config.item_per_page_limit;
 	async.parallel([
 		function(callback) {
 			// 取文章
-			var perPage = config.item_per_page_limit;
 			var option = {skip:(page-1) * perPage, limit:perPage, sort:'-top -create_at'};
 			// var option = null;
 			Article.getArticles(query, option, callback);
@@ -37,7 +37,7 @@ exports.index = function (req, res, next) {
 			return next();
 		}
 		var articles = result[0];
-		var pages = result[1];
+		var pages = result[1] / perPage + 1;
 		res.render('index', {
 			types: config.article_type,
 			type: article_type,
