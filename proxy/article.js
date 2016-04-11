@@ -11,7 +11,7 @@ var Article = require('../models').Article;
  *  - articles 结果列表
  */
 exports.getArticles = function (query, option, callback) {
-	Article.find(query, option, callback);
+	Article.find(query, {},option, callback);
 }
 
 
@@ -24,4 +24,23 @@ exports.getArticles = function (query, option, callback) {
  */
 exports.getArticlesCount = function (query, callback) {
 	Article.count(query, callback);
+}
+
+/**
+ * 保存新的文章
+ * @param  {[type]}   title       
+ * @param  {[type]}   content     
+ * @param  {[type]}   articleType 
+ * @param  {[type]}   authorId    
+ * @param  {Function} callback     
+ */
+exports.saveNewArticle = function (title, content, articleType, authorId, callback) {
+	var article = new Article();
+
+	article.title = title;
+	article.content = content;
+	article.type = articleType;
+	// article.author_id = authorId;
+
+	article.save(callback);
 }
