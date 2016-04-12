@@ -1,6 +1,24 @@
+
 <div class='cell'>
 
-  <span class='last_time pull-right'>
+  <%
+    if (current_user) {
+  %>
+  <span class='pull-right space'>
+    <a href="/article/<%=article._id%>/delete">删除</a>
+  </span>
+
+  <span class='pull-right space'>
+    <a href="/article/<%=article._id%>/edit">编辑</a>
+  </span>
+
+  <span class='pull-right space'>
+    <a href="/article/<%=article._id%>/top">置顶</a>
+  </span>
+  <%
+    }
+  %>
+  <span class='last_time pull-right space'>
     <span class="last_active_time"><%= article.create_at %></span>
   </span>
 
