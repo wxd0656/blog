@@ -9,7 +9,7 @@ var UserSchema = new Schema({
 	Auth: { type:Number, default: 0 },
 
 	create_at: { type:Date, default:Date.now },
-	uddate_at: { type:Date, default:Date.now },
+	update_at: { type:Date, default:Date.now },
 
 	receive_reply_mail: {type: Boolean, default: false },
 });

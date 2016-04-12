@@ -44,7 +44,7 @@ var config = {
   redis_db: 0,
 
   session_secret: 'dashabi_node_blog_secret', // 务必修改
-  auth_cookie_name: 'dashabi_node_club',
+  auth_cookie_name: 'dashabi_node_blog',
 
   // 程序运行的端口
   port: 3000,
