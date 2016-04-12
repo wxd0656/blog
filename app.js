@@ -10,6 +10,7 @@ var _ = require('lodash');
 
 var router = require('./router.js');
 var config = require('./config.js');
+var auth = require('./mid/auth.js');
 
 var app = express();
 
@@ -40,8 +41,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 _.extend(app.locals, {config:config});
 
+app.use(auth.authUser);
+
 //路由
 app.use('/', router);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
