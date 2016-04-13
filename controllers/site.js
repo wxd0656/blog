@@ -37,7 +37,7 @@ exports.index = function (req, res, next) {
 			return next();
 		}
 		var articles = result[0];
-		var pages = result[1] / perPage + 1;
+		var pages = Math.ceil(result[1] / perPage);
 		res.render('index', {
 			types: config.article_type,
 			type: article_type,
