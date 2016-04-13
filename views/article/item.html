@@ -5,7 +5,7 @@
     if (current_user) {
   %>
   <span class='pull-right space'>
-    <a href="/article/<%=article._id%>/delete">删除</a>
+    <a href="javascript:;" data-id="<%= article._id %>" class='delete_topic_btn'>删除</a>
   </span>
 
   <span class='pull-right space'>
@@ -34,3 +34,5 @@
     </a>
   </div>
 </div>
+
+

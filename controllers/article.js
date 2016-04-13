@@ -50,3 +50,23 @@ exports.createNewArticle = function(req, res, next) {
 		res.redirect('/');
 	});
 }
+
+
+/**
+ * 删除文章
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+exports.deleteArticle = function(req, res, next) {
+	var aid = req.params.aid;
+
+	Article.deleteArticleById(aid, function(err) {
+		if (err) {
+			res.send({ success: false, message: err.message });
+		} else {
+			res.send({ success: true, message: '成功删除！'});
+		}
+	});
+}

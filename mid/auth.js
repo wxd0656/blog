@@ -46,6 +46,6 @@ exports.authUser = function(req, res, next) {
     // }
 
   }
-  console.log(res.locals.current_user);
+  // console.log(res.locals.current_user);
   next();
 }

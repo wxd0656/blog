@@ -44,3 +44,33 @@ exports.saveNewArticle = function (title, content, articleType, authorId, callba
 
 	article.save(callback);
 }
+
+/**
+ * 根据主题ID，查找一条主题
+ * @param {String} id 主题ID
+ * @param {Function} callback 回调函数
+ */
+exports.getArticleById = function (id, callback) {
+	Article.findOne({_id: id}, callback);
+};
+
+/**
+ * 根据id删除文章
+ * @param  {[type]}   id       [description]
+ * @param  {Function} callback [description]
+ * @return {[type]}            [description]
+ */
+exports.deleteArticleById = function (id, callback) {
+	Article.findOne({_id: id}, function(err, article) {
+		if (err) {
+			return callback(err);
+		}
+		if (!article) {
+			return callback(new Error('没有这个文章！'));
+		}
+		article.deleted = true;
+		article.save(function(err){
+			callback(err);
+		});
+	});
+}

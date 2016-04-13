@@ -55,3 +55,21 @@
     }
   });
 </script>
+
+<script type="text/javascript">
+  // alert('123');
+  // 删除文章
+  $('.delete_topic_btn').click(function(){
+    var id = $(this).data('id');
+    if (id && confirm('确定要删除此文章吗？'+id)) {
+      $.post('/article/' + id + '/delete', function (result) {
+        if (!result.success) {
+          alert(result.message);
+        } else {
+          location.href = '/';
+        }
+      });
+    }
+    return false;
+  });
+</script>
