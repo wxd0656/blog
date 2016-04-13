@@ -12,7 +12,7 @@ var ArticleSchema = new Schema({
 	top: { type:Boolean, default:false },
 	tag: { type:String },
 	type: { type:String }, //文章类型
-	visity_count: { type:Number },
+	visit_count: { type:Number },
 	reply_count: { type:Number },
 
 	create_at: { type:Date, default:Date.now },
