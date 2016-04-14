@@ -40,7 +40,7 @@ exports.saveNewArticle = function (title, content, articleType, authorId, callba
 	article.title = title;
 	article.content = content;
 	article.type = articleType;
-	// article.author_id = authorId;
+	article.author_id = authorId;
 
 	article.save(callback);
 }
@@ -95,4 +95,17 @@ exports.topArticleById = function (id, callback) {
 			callback(err);
 		});
 	});
+}
+
+/**
+ * 编辑文章
+ * @param  {[type]}   id       [description]
+ * @param  {[type]}   title    [description]
+ * @param  {[type]}   content  [description]
+ * @param  {[type]}   type     [description]
+ * @param  {Function} callback [description]
+ * @return {[type]}            [description]
+ */
+exports.updateArticleById = function (id, title, content, type, callback) {
+	Article.update({ _id: id }, { $set: { title: title, content: content, type: type, update_at: new Date()}}, callback);
 }

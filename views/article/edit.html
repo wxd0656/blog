@@ -25,7 +25,7 @@
       </div>
       <% }else{ %>
       <% if (typeof(action) !== 'undefined' && action === 'edit') { %>
-      <form id='create_topic_form' action='/article/<%= topic_id %>/edit' method='post'>
+      <form id='create_topic_form' action='/article/<%= aid %>/edit' method='post'>
         <% } else { %>
         <form id='create_topic_form' action='/article/create' method='post'>
           <% } %>

@@ -18,7 +18,8 @@ router.post('/article/create', article.createNewArticle);
 router.get('/article/:aid', article.articleDetial);
 router.post('/article/:aid/delete', article.deleteArticle);
 router.post('/article/:aid/top', article.topArticle);
-
+router.get('/article/:aid/edit', article.renderEdit);
+router.post('/article/:aid/edit', article.editArticle);
 
 
 
