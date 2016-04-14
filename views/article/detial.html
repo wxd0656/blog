@@ -11,16 +11,13 @@
       </span>
       <div class="changes">
         <span>
-          发布于 <%= article.create_at %>
-        </span>
-        <span>
-          作者 <a href="#"><%= article.author.loginname %></a>
+          发布于 <%= article.create_at.toLocaleString() %>
         </span>
         <span>
           <%= article.visit_count %> 次浏览
         </span>
         <span>
-          最后编辑于 <%= article.update_at %>
+          最后编辑于 <%= article.update_at.toLocaleString() %>
         </span>
 
       </div>
@@ -28,7 +25,7 @@
     <div class='inner topic'>
 
       <div class='topic_content'>
-        <%= article.content %>
+        <%- article.mdContent %>
       </div>
     </div>
   </div>

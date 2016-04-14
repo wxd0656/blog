@@ -2,6 +2,7 @@
 var config = require('../config.js');
 var logger = require('../common/logger.js');
 var Article = require('../proxy/article.js');
+var md = require('../common/markdown.js');
 
 /**
  * render the page of CreateNewArticle
@@ -87,6 +88,24 @@ exports.topArticle = function(req, res, next) {
 			res.send({ success: false, message: err.message});
 		} else {
 			res.send({ success: true, message: '成功置顶！'});
+		}
+	});
+}
+
+
+exports.articleDetial = function(req, res, next) {
+	var aid = req.params.aid;
+
+	Article.getArticleById(aid, function(err, article) {
+		if (err) {
+			return next(err);
+		} else {
+			// 浏览数加一
+			article.visit_count++;
+			article.save();
+
+			article.mdContent = md.markdown(article.content);
+			res.render('article/detial', {article:article});
 		}
 	});
 }

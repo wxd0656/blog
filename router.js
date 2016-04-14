@@ -15,6 +15,7 @@ router.post('/login', sign.handerLogin);
 
 router.get('/article/create', article.renderCreateNewArticle);
 router.post('/article/create', article.createNewArticle);
+router.get('/article/:aid', article.articleDetial);
 router.post('/article/:aid/delete', article.deleteArticle);
 router.post('/article/:aid/top', article.topArticle);
 

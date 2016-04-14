@@ -12,8 +12,8 @@ var ArticleSchema = new Schema({
 	top: { type:Boolean, default:false },
 	tag: { type:String },
 	type: { type:String }, //文章类型
-	visit_count: { type:Number },
-	reply_count: { type:Number },
+	visit_count: { type:Number ,default:0},
+	reply_count: { type:Number ,default:0},
 
 	create_at: { type:Date, default:Date.now },
 	update_at: { type:Date, default:Date.now },
