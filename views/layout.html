@@ -29,13 +29,19 @@
   <link rel='stylesheet' href='/stylesheets/style.less' />
   <link rel='stylesheet' href='/stylesheets/responsive.css' />
   <link rel='stylesheet' href='/stylesheets/jquery.atwho.css' />
+  <link rel='stylesheet' href='/libs/editor/editor.css' />
+  <link rel='stylesheet' href='/libs/webuploader/webuploader.css' />
 
 
 
 
   <!-- scripts -->
   <script type="text/javascript" src='/javascripts/jquery-2.1.0.js'></script>
-
+  <script type="text/javascript" src='/libs/jquery-ujs.js'></script>
+  <script type="text/javascript" src='/libs/jquery.caret.js'></script>
+  <script type="text/javascript" src='/libs/jquery.atwho.js'></script>
+  <script type="text/javascript" src='/libs/bootstrap/js/bootstrap.js'></script>
+  
   <!-- 页面title -->
   <% if (typeof(topic) !== 'undefined') { %>
   <title><%= topic.title %> - <%= config.name %></title>
