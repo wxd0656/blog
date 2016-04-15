@@ -12,6 +12,7 @@ router.get('/', site.index);
 // login page
 router.get('/login', sign.renderLogin);
 router.post('/login', sign.handerLogin);
+router.get('/logout', sign.logout);
 
 router.get('/article/create', article.renderCreateNewArticle);
 router.post('/article/create', article.createNewArticle);

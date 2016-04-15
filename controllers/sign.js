@@ -1,4 +1,5 @@
 var User = require('../proxy/user.js');
+var config = require('../config.js');
 
 /**
  * 渲染登陆页面
@@ -50,6 +51,20 @@ exports.handerLogin = function(req, res, next) {
 		var redirect = req.session._loginReferer || '/';
 		res.redirect(redirect);
 	});	
+}
+
+
+/**
+ * 登出
+ * @param  {[type]}   req  [description]
+ * @param  {[type]}   res  [description]
+ * @param  {Function} next [description]
+ * @return {[type]}        [description]
+ */
+exports.logout = function(req, res, next) {
+	req.session.destroy();
+	res.clearCookie(config.auth_cookie_name, { path: '/' });
+	res.redirect('/');
 }
 
 /**
